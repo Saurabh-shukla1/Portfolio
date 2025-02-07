@@ -20,8 +20,11 @@ import {
   IdCard,
   Atom,
   Instagram,
-  Moon, Sun
-  
+  Moon, Sun,
+  Send,
+  User,
+  Mail,
+  MessageCircle  
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -29,6 +32,11 @@ const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isVisible, setIsVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
   // Creating refs for each section for smooth scrolling
   const sectionRefs = {
@@ -53,6 +61,40 @@ const Portfolio = () => {
       setIsMenuOpen(false);
     }
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
 
   const navItems = ['Home', 'About', 'Skills', 'Projects', 'Certifications', 'Contact'];
 
@@ -277,41 +319,43 @@ const Portfolio = () => {
         </section>
 
         {/* About Section */}
-        <section ref={sectionRefs.about} className="py-20 bg- ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+        <section ref={sectionRefs.about} className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center mb-12 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}" >About Me</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="src/assets/profile.jpg"
-                  alt="Professional headshot"
+                  src="./src/assets/profile.jpg"
+                  alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
               </div>
               <div>
                 <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
-                <p className="text-gray-600 mb-6 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+                <p className={`text-gray-600 mb-6  ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                 I am a passionate and detail-oriented BSc IT graduate with a strong foundation in Data Science, Machine Learning, and Generative AI. My expertise includes exploratory data analysis (EDA), machine learning models, and data-driven decision-making. I have hands-on experience working with React, Vite, and Firebase etc. for web development.
                 </p>
-                <p className="text-gray-600 mb-6 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+                <p className={`text-gray-600 mb-6  ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                   I'm passionate about solving complex problems and creating intuitive user 
                   experiences. My approach combines technical expertise with creative 
                   problem-solving to deliver high-quality solutions.
                 </p>
-                <p className="text-gray-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+                <p className={`text-gray-600 mb-6  ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                 I enjoy solving complex problems and continuously learning new technologies to 
                 enhance my skills. Currently, I am seeking opportunities where I can apply my
                  knowledge, collaborate with a dynamic team, and contribute to impactful
                   projects.
                 </p>
                 
-                <p className="text-gray-600 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+                <p className={`text-gray-600 mb-6  ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
                 Let’s connect and create something amazing together!
                 </p>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Skills Section */}
 
         <section ref={sectionRefs.skills} className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -351,17 +395,32 @@ const Portfolio = () => {
         </section>
 
         {/* Projects Section */}
-        <section ref={sectionRefs.projects} className="py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+        <section ref={sectionRefs.projects} className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-            <h2 className="text-3xl font-bold text-center mb-12 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">Featured Projects</h2>
+            <h2 className={`text-3xl font-bold text-center mb-12 ${isDarkMode ? 'text-gray-100' : ''}`}>Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map(project => (
                 <div
                   key={project.title}
-                  className=" p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow  ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}"
+                  className={`p-6 rounded-lg hover:shadow-lg transition-shadow ${
+                    isDarkMode 
+                      ? 'bg-gray-700 text-gray-200 ' 
+                      : 'bg-gray-50'
+                  }`}
                 >
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <h3 
+                  className={`text-xl font-semibold mb-2 ${
+                    isDarkMode 
+                      ? 'bg-gray-700 text-gray-200' 
+                      : 'bg-gray-50'
+                  }`}>{project.title}</h3>
+                  <p 
+                  className={`${
+                    isDarkMode 
+                      ? 'bg-gray-700 text-gray-200' 
+                      : 'bg-gray-50'
+                  }`}
+                  >{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map(tech => (
                       <span
@@ -451,42 +510,97 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
-
+        
+        
         {/* Contact Section */}
-        <section ref={sectionRefs.contact} className="py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">
+        <section ref={sectionRefs.contact} className={`py-20 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Get In Touch</h2>
-            <form className="space-y-6">
-              <div>
-                <label className="block text-gray-700 mb-2 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2">Message</label>
-                <textarea
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${isDarkMode ? 'bg-gray-800' : 'bg-gray-50'}"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </section>
+          <h2 className={`text-3xl font-bold text-center mb-12 ${isDarkMode ? 'text-gray-100' : ''}`}>
+            Get In Touch
+          </h2>
+          <form 
+            onSubmit={handleSubmit}
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="space-y-6"
+          >
+            <input 
+              type="hidden" 
+              name="access_key" 
+              value="b867992d-90bf-4687-b6cb-24af4647fc19" 
+            />
+
+            <div>
+              <label className={`block mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <User className="inline-block mr-2 w-5 h-5" />
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className={`w-full px-4 py-2 rounded-lg ${
+                  isDarkMode 
+                    ? 'bg-gray-700 text-gray-200 border-gray-600' 
+                    : 'bg-white border-gray-300'
+                } focus:ring-2 focus:ring-blue-500`}
+              />
+            </div>
+
+            <div>
+              <label className={`block mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <Mail className="inline-block mr-2 w-5 h-5" />
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className={`w-full px-4 py-2 rounded-lg ${
+                  isDarkMode 
+                    ? 'bg-gray-700 text-gray-200 border-gray-600' 
+                    : 'bg-white border-gray-300'
+                } focus:ring-2 focus:ring-blue-500`}
+              />
+            </div>
+
+            <div>
+              <label className={`block mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <MessageCircle className="inline-block mr-2 w-5 h-5" />
+                Message
+              </label>
+              <textarea
+                name="message"
+                rows={4}
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+                className={`w-full px-4 py-2 rounded-lg ${
+                  isDarkMode 
+                    ? 'bg-gray-700 text-gray-200 border-gray-600' 
+                    : 'bg-white border-gray-300'
+                } focus:ring-2 focus:ring-blue-500`}
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className={`w-full py-3 rounded-lg flex items-center justify-center gap-2 ${
+                isDarkMode 
+                  ? 'bg-blue-700 text-white hover:bg-blue-600' 
+                  : 'bg-blue-600 text-white hover:bg-blue-700'
+              } transition-colors`}
+            >
+              <Send className="w-5 h-5" />
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
                
 
       </main>
@@ -494,7 +608,7 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className={`${isDarkMode ? 'bg-gray-800 text-gray-300' : 'bg-gray-900 text-white'} py-8`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p>© 2025 Your Name. All rights reserved.</p>
+          <p>© 2025 Saurabh ❤️. All rights reserved.</p>
         </div>
       </footer>
     </div>
