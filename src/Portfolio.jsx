@@ -134,7 +134,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUERJSFEB125946",
-      link: "src/assets/certificates/React.png",
+      link: "./public/assets/certificates/React.png",
       icon: <Atom className="w-6 h-6" />
     },
     {
@@ -142,7 +142,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEPYTJAN1252608",
-      link: "src/assets/certificates/Python.png",
+      link: "./public/assets/certificates/Python.png",
       icon: <Award className="w-6 h-6" />
     },
     {
@@ -150,7 +150,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUESQLJAN125686",
-      link: "src/assets/certificates/SQL.png",
+      link: "./public/assets/certificates/SQL.png",
       icon: <Database className="w-6 h-6" />
     },
     {
@@ -158,7 +158,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEHTMLJAN1253046",
-      link: "src/assets/certificates/HTML.png",
+      link: "./public/assets/certificates/HTML.png",
       icon: <FileJson2 className="w-6 h-6" />
     },
     {
@@ -166,7 +166,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2024",
       credentialId: "LUEPEJUL124330",
-      link: "src/assets/certificates/Prompt.png",
+      link: "./public/assets/certificates/Prompt.png",
       icon: <Brain className="w-6 h-6" />
     }
   ];
@@ -325,7 +325,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="./src/assets/profile.jpg"
+                  src="./public/assets/profile.jpg"
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
