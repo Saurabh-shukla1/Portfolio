@@ -27,6 +27,7 @@ import {
   MessageCircle  
 } from 'lucide-react';
 
+
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -262,7 +263,7 @@ const Portfolio = () => {
                 
               ))}
               <a
-                href="/path-to-your-resume.pdf"
+                href="/public/assets/resume.pdf"
                 className="block w-full text-left px-3 py-2 text-blue-600 hover:text-blue-700"
                 download
               >
