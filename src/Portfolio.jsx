@@ -268,8 +268,7 @@ const Portfolio = () => {
               >
                 Download Resume
               </a>
-            </div>
-            {/* Dark Mode Toggle */}
+              {/* Dark Mode Toggle */}
             <button 
               onClick={toggleDarkMode}
               className={`px-3 py-1 rounded-full ${
@@ -280,6 +279,8 @@ const Portfolio = () => {
             >
               {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
+            </div>
+            
           </div>
         )}
       </nav>
