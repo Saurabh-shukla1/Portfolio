@@ -26,8 +26,8 @@ import {
   Mail,
   MessageCircle  
 } from 'lucide-react';
-import resume from './assets/resume.pdf';
-import profile from './assets/profile.jpg';
+import resume from '/Portfolio/src/assets/resume.pdf';
+import profile from '/Portfolio/src/assets/profile.jpg';
 
 
 
