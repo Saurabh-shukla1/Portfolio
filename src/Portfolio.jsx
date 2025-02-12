@@ -265,7 +265,7 @@ const Portfolio = () => {
                 
               ))}
               <a
-                href="/public/assets/resume.pdf"
+                href="assets/resume.pdf"
                 className="block w-full text-left px-3 py-2 text-blue-600 hover:text-blue-700"
                 download
               >
@@ -329,7 +329,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="Assets/profile.jpg"
+                  src="assets/profile.jpg"
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
