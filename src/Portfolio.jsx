@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 
 
+
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -109,6 +110,7 @@ const Portfolio = () => {
         { name: 'Next.js', icon: <Box className="w-5 h-5" /> }
       ] 
     },
+
     { 
       category: 'Backend', 
       items: [
@@ -135,7 +137,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUERJSFEB125946",
-      link: "./public/assets/certificates/React.png",
+      link: "Assets/certificates/React.png",
       icon: <Atom className="w-6 h-6" />
     },
     {
@@ -143,7 +145,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEPYTJAN1252608",
-      link: "./public/assets/certificates/Python.png",
+      link: "Assets/certificates/Python.png",
       icon: <Award className="w-6 h-6" />
     },
     {
@@ -151,7 +153,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUESQLJAN125686",
-      link: "./public/assets/certificates/SQL.png",
+      link: "Assets/certificates/SQL.png",
       icon: <Database className="w-6 h-6" />
     },
     {
@@ -159,7 +161,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEHTMLJAN1253046",
-      link: "./public/assets/certificates/HTML.png",
+      link: "Assets/certificates/HTML.png",
       icon: <FileJson2 className="w-6 h-6" />
     },
     {
@@ -167,7 +169,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2024",
       credentialId: "LUEPEJUL124330",
-      link: "./public/assets/certificates/Prompt.png",
+      link: "Assets/certificates/Prompt.png",
       icon: <Brain className="w-6 h-6" />
     }
   ];
@@ -327,7 +329,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="./public/assets/profile.jpg"
+                  src="Assets/profile.jpg"
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
