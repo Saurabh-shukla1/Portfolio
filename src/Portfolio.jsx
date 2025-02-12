@@ -331,7 +331,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="Assets/profile.jpg"
+                  src={profile}
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
