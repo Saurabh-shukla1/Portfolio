@@ -26,6 +26,8 @@ import {
   Mail,
   MessageCircle  
 } from 'lucide-react';
+import resume from './assets/resume.pdf';
+import profile from './assets/profile.jpg';
 
 
 
@@ -137,7 +139,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUERJSFEB125946",
-      link: "Assets/certificates/React.png",
+      link: "assets/certificates/React.png",
       icon: <Atom className="w-6 h-6" />
     },
     {
@@ -145,7 +147,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEPYTJAN1252608",
-      link: "Assets/certificates/Python.png",
+      link: "assets/certificates/Python.png",
       icon: <Award className="w-6 h-6" />
     },
     {
@@ -153,7 +155,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUESQLJAN125686",
-      link: "Assets/certificates/SQL.png",
+      link: "assets/certificates/SQL.png",
       icon: <Database className="w-6 h-6" />
     },
     {
@@ -161,7 +163,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEHTMLJAN1253046",
-      link: "Assets/certificates/HTML.png",
+      link: "assets/certificates/HTML.png",
       icon: <FileJson2 className="w-6 h-6" />
     },
     {
@@ -169,7 +171,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2024",
       credentialId: "LUEPEJUL124330",
-      link: "Assets/certificates/Prompt.png",
+      link: "assets/certificates/Prompt.png",
       icon: <Brain className="w-6 h-6" />
     }
   ];
@@ -221,7 +223,7 @@ const Portfolio = () => {
                 </button>
               ))}
               <a
-                href="/path-to-your-resume.pdf"
+                href={resume}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 download
               >
@@ -265,7 +267,7 @@ const Portfolio = () => {
                 
               ))}
               <a
-                href="/public/assets/resume.pdf"
+                href={resume}
                 className="block w-full text-left px-3 py-2 text-blue-600 hover:text-blue-700"
                 download
               >
@@ -329,7 +331,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src="Assets/profile.jpg"
+                  src={profile}
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
