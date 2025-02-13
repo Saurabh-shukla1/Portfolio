@@ -26,8 +26,7 @@ import {
   Mail,
   MessageCircle  
 } from 'lucide-react';
-import resume from '/Portfolio/src/assets/resume.pdf';
-import profile from '/Portfolio/src/assets/profile.jpg';
+
 
 
 
@@ -139,7 +138,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUERJSFEB125946",
-      link: "assets/certificates/React.png",
+      link: "https://drive.google.com/file/d/1u9grT9p8WGcLw2X6wnl8b0fDr7Hd-L-b/view?usp=drive_link",
       icon: <Atom className="w-6 h-6" />
     },
     {
@@ -147,7 +146,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEPYTJAN1252608",
-      link: "assets/certificates/Python.png",
+      link: "https://drive.google.com/file/d/1VzjR-zQ9KoF9OY-UKKY05izKxkpOyZC2/view?usp=drive_link",
       icon: <Award className="w-6 h-6" />
     },
     {
@@ -155,7 +154,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUESQLJAN125686",
-      link: "assets/certificates/SQL.png",
+      link: "https://drive.google.com/file/d/19qkyOSiQgupKcxW8doktHGiNSbw5HWhJ/view?usp=sharing",
       icon: <Database className="w-6 h-6" />
     },
     {
@@ -163,7 +162,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2025",
       credentialId: "LUEHTMLJAN1253046",
-      link: "assets/certificates/HTML.png",
+      link: "https://drive.google.com/file/d/1lSR9VlIsypfcRzeOxDOVvYefpee6WzAp/view?usp=sharing",
       icon: <FileJson2 className="w-6 h-6" />
     },
     {
@@ -171,7 +170,7 @@ const Portfolio = () => {
       issuer: "Letsupgrade",
       date: "2024",
       credentialId: "LUEPEJUL124330",
-      link: "assets/certificates/Prompt.png",
+      link: "https://drive.google.com/file/d/1iuoKP_NtLe9qzqlny9sQjg7yMliMkzJh/view?usp=sharing",
       icon: <Brain className="w-6 h-6" />
     }
   ];
@@ -223,7 +222,7 @@ const Portfolio = () => {
                 </button>
               ))}
               <a
-                href={resume}
+                href="https://drive.google.com/file/d/1dcCYnMg6-iZ3AXaBbt8LovWU0orUAEQA/view?usp=sharing"
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 download
               >
@@ -267,7 +266,7 @@ const Portfolio = () => {
                 
               ))}
               <a
-                href="/public/assets/resume.pdf"
+                href="https://drive.google.com/file/d/1dcCYnMg6-iZ3AXaBbt8LovWU0orUAEQA/view?usp=sharing"
                 className="block w-full text-left px-3 py-2 text-blue-600 hover:text-blue-700"
                 download
               >
@@ -331,7 +330,7 @@ const Portfolio = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <img
-                  src={profile}
+                  src="https://i.postimg.cc/DzrYfdYg/profile.jpg"
                   alt="Profile"
                   className="rounded-lg shadow-lg w-full"
                 />
